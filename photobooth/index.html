@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Booth</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Tambahkan FontAwesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="photo-booth">
+        <!-- Bagian Kamera dan Output -->
+        <div class="both">
+            <div class="camera">
+                <div class="camera-preview">
+                    <video id="video" autoplay></video>
+                </div>
+                <button id="capture-btn"><i class="fas fa-camera"></i> Ambil Foto</button>
+                <canvas id="canvas" style="display:none;"></canvas>
+            </div>
+
+            <!-- Bagian Output Foto -->
+            <div class="photo-output" id="photo-output" data-layout="1">
+                <!-- Foto-foto akan ditampilkan di sini -->
+            </div>
+        </div>
+
+        <!-- Menu Layout Foto -->
+        <div class="menu-layoutPhoto">
+            <div class="layout-option" data-layout="1">
+                <i class="fas fa-border-none"></i>
+            </div>
+            <div class="layout-option" data-layout="2">
+                <i class="fas fa-grip-horizontal"></i>
+            </div>
+            <div class="layout-option" data-layout="3">
+                <i class="fas fa-th"></i>
+            </div>
+            <div class="layout-option" data-layout="4">
+                <i class="fas fa-th-large"></i>
+            </div>
+        </div>
+
+        <!-- Pilihan Background (Color Picker) -->
+        <div class="background-options">
+            <h3>Pilih Warna Background:</h3>
+            <input type="color" id="color-picker" value="#ffffff">
+        </div>
+
+        <!-- Tombol Unduh Layout -->
+        <button id="download-btn"><i class="fas fa-download"></i> Unduh Layout</button>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</body>
+</html>

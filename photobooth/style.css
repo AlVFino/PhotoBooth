@@ -1,0 +1,260 @@
+/* Tema Dark Mode Premium */
+:root {
+  --primary-color: #6c5ce7; /* Warna utama (ungu premium) */
+  --secondary-color: #a29bfe; /* Warna sekunder (ungu muda) */
+  --background-color: #1e1e2f; /* Warna background gelap premium */
+  --surface-color: #2d2d44; /* Warna permukaan */
+  --text-color: #ffffff; /* Warna teks */
+  --secondary-text-color: #b2b2b2; /* Warna teks sekunder */
+  --border-radius: 12px; /* Border radius */
+  --gap: 24px; /* Jarak antar elemen */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Shadow default */
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* Font modern */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, var(--background-color), #2d2d44);
+  color: var(--text-color);
+}
+
+.photo-booth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+  width: 90%;
+  max-width: 1200px;
+  padding: var(--gap);
+  border-radius: var(--border-radius);
+  background-color: var(--surface-color);
+  box-shadow: var(--shadow);
+}
+
+.both {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+  width: 100%;
+}
+
+.camera-preview video {
+  width: 100%;
+  max-width: 400px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border: 2px solid var(--primary-color);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.camera-preview video:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(108, 92, 231, 0.4);
+}
+
+button {
+  margin-top: var(--gap);
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(108, 92, 231, 0.4);
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow);
+}
+
+/* Output Foto */
+.photo-output {
+  display: grid;
+  gap: var(--gap);
+  padding: 15px;
+  border-radius: 3px;
+  width: 100%;
+  max-width: 400px;
+  margin-top: var(--gap);
+  background-color: var(--surface-color);
+  box-shadow: var(--shadow);
+}
+
+.photo-output[data-layout="1"] {
+  grid-template-columns: 1fr;
+}
+
+.photo-output[data-layout="2"] {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.photo-output[data-layout="3"] {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.photo-output[data-layout="4"] {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.photo-output img {
+  width: 100%;
+  border-radius: 3px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.photo-output img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Animasi saat foto ditambahkan */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.photo-output img {
+  width: auto; /* Sesuaikan dengan lebar asli */
+  height: auto; /* Sesuaikan dengan tinggi asli */
+  max-width: 100%; /* Batasi lebar maksimum */
+  border-radius: 3px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Menu Layout Foto */
+.menu-layoutPhoto {
+  display: flex;
+  justify-content: space-around;
+  margin-top: var(--gap);
+  width: 100%;
+  max-width: 400px;
+}
+
+.layout-option {
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--secondary-text-color);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.layout-option:hover {
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Animasi ikon layout */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.layout-option:hover {
+  animation: bounce 0.5s;
+}
+
+/* Pilihan Background (Color Picker) */
+.background-options {
+  margin-top: var(--gap);
+  text-align: center;
+}
+
+.background-options h3 {
+  margin-bottom: 10px;
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#color-picker {
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#color-picker:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(108, 92, 231, 0.4);
+}
+
+/* Tombol Unduh */
+#download-btn {
+  margin-top: var(--gap);
+}
+
+/* Responsif untuk HP, Tablet, dan Laptop */
+@media (min-width: 768px) {
+  .both {
+    flex-direction: row; /* Tampilkan kamera dan output foto secara horizontal */
+    align-items: flex-start; /* Rata atas */
+    gap: var(--gap);
+  }
+
+  .camera {
+    flex: 1; /* Kamera mengambil 1 bagian */
+  }
+
+  .photo-output {
+    flex: 1; /* Output foto mengambil 1 bagian */
+    max-width: none; /* Hilangkan batas maksimum lebar */
+    margin-top: 0; /* Hilangkan margin atas */
+  }
+}
+
+@media (max-width: 767px) {
+  .both {
+    flex-direction: column;
+  }
+
+  .photo-output {
+    max-width: 100%;
+  }
+
+  .menu-layoutPhoto {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .layout-option {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-booth {
+    padding: 10px;
+  }
+
+  .photo-output[data-layout="3"],
+  .photo-output[data-layout="4"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
